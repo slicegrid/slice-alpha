@@ -16,8 +16,8 @@ Quickstart: [QUICKSTART.md](./QUICKSTART.md)
 - Vouchers are tiny (100 inference_milliCU) and expire in about one hour from mint.
 - Rate-limited public endpoint. Metrics are not public.
 
-## Renamed from Agent Prime
+## Naming
 
-This repo was `agent-prime-alpha`. The pack is now `slice-alpha.tgz`, the redeem CLI is `bin/slice-redeem.mjs` (was `bin/alpha-redeem.mjs`), and the vendored packages are `@slicegrid/*` (not published to npm). The wire protocol is unchanged: the anchor still serves `/.well-known/agent-prime.json`.
+The pack is `slice-alpha.tgz`, the redeem CLI is `bin/slice-redeem.mjs` (was `bin/alpha-redeem.mjs`), and the vendored packages are `@slicegrid/*` (not published to npm). The wire protocol is unchanged: the anchor still serves `/.well-known/agent-prime.json`.
 
 By bagcollective.io.
