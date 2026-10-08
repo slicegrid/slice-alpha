@@ -22,12 +22,12 @@ You should see `"protocol":"agent-prime"` (the wire protocol id is unchanged by 
 
 - Landing: https://github.com/slicegrid/slice-alpha
 - Release: https://github.com/slicegrid/slice-alpha/releases/tag/v0.3.2-alpha.1
-- SHA-256: `1b03321217a194e05620399a6ac2f4d151203a9d04f0a7f3dfe84c35e0c243cf`
-- Vouchers in this build expire **2026-10-08 15:05 EDT** (19:05 UTC). If you are past that, ask in-thread for a remint before redeeming.
+- SHA-256: `53f19cbc084eb2c9d1a0dd05273b8ed957abb920bc9c283ee70d4168b3639539`
+- Vouchers in this build expire **2026-10-08 16:39 EDT** (20:39 UTC). If you are past that, ask in-thread for a remint before redeeming.
 
 ```bash
 curl -fsSL "https://github.com/slicegrid/slice-alpha/releases/download/v0.3.2-alpha.1/slice-alpha.tgz" -o slice-alpha.tgz
-echo "1b03321217a194e05620399a6ac2f4d151203a9d04f0a7f3dfe84c35e0c243cf  slice-alpha.tgz" | sha256sum -c -
+echo "53f19cbc084eb2c9d1a0dd05273b8ed957abb920bc9c283ee70d4168b3639539  slice-alpha.tgz" | sha256sum -c -
 tar -xzf slice-alpha.tgz
 cd slice-alpha
 # Requires Node 22+
