@@ -23,7 +23,7 @@ You should see `"protocol":"agent-prime"` (the wire protocol id is unchanged by 
 - Landing: https://github.com/slicegrid/slice-alpha
 - Release: https://github.com/slicegrid/slice-alpha/releases/tag/v0.3.2-alpha.1
 - SHA-256: `22ce05d75a5b8ce55b77e4f78c7cbc61d1ab113115e91fdb6174c21f99a3a4ea`
-- Vouchers in this build expire **2026-10-08 16:39 EDT** (20:39 UTC). If you are past that, ask in-thread for a remint before redeeming.
+- Alpha test vouchers in the release tag may have expired; reach out on Discord, X, or team@bagcollective.io and we will send a fresh active voucher. Contact: [Discord thread](https://discord.com/channels/1312302100125843476/1544674994423074867/threads/1557794379647946832), [X @slicegridhq](https://x.com/slicegridhq), [team@bagcollective.io](mailto:team@bagcollective.io), or [GitHub Issues](https://github.com/slicegrid/slice-alpha/issues).
 
 ```bash
 curl -fsSL "https://github.com/slicegrid/slice-alpha/releases/download/v0.3.2-alpha.1/slice-alpha.tgz" -o slice-alpha.tgz
@@ -37,7 +37,7 @@ node -v
 Pack contents:
 - `bin/slice-redeem.mjs` — one-shot redeem helper (renamed from `bin/alpha-redeem.mjs`)
 - `fixtures/hello.wasm`
-- `fixtures/voucher-1.jws` … `voucher-3.jws` — three tiny house-signed vouchers (100 `inference_milliCU`, ~1h TTL, one-shot)
+- `fixtures/voucher-1.jws` … `voucher-3.jws` — three tiny house-signed vouchers (100 `inference_milliCU`, short TTL, one-shot)
 - `fixtures/alpha-holder.seed` — throwaway holder for these vouchers (not a house key)
 
 ---
@@ -65,13 +65,21 @@ house_peer_id: 12D3KooWNa8tDYJ3Pcq6uan3Qdh17Sjf1nboVuqj7NKbvUxTWZSt
 
 If you see `REPLAY`, that voucher was already spent (yours or someone else's) — try `voucher-2.jws`.
 If you see `RATE_LIMITED`, wait a couple of seconds and resend the **same** bytes.
-If you see `EXPIRED` / `NBF`, the voucher's time window moved on — grab a fresh pack or ask in-thread.
+If you see `EXPIRED` / `NBF`, the voucher's time window moved on — ask us for a fresh voucher (see Contact below).
 
-**That `DONE` is the successful external trade.** Reply in the open-call thread with `DONE` and the UTC time. Do not paste the full receipt JWS in public if you can avoid it.
+**That `DONE` is the successful external trade.** Tell us you got `DONE`, with the UTC time, via any route under Contact below (a GitHub Issue works). Do not paste the full receipt JWS in public if you can avoid it.
 
 ---
 
 ## 3. Optional: MCP (Cursor / Claude Desktop)
+
+The MCP server is also on npm:
+
+```bash
+npm install @slicegrid/mcp-server
+```
+
+The plain redeem tool (`bin/slice-redeem.mjs`) still comes from the pack tarball, not from npm. The paths below use the copy bundled in the pack.
 
 Discovery + prepare/verify against the live anchor (economic mint/redeem tools stay off unless you set the grant).
 
@@ -129,6 +137,10 @@ House residual and live limits are advertised at:
 | `ANCHOR_TIMEOUT` / `ANCHOR_CONNECTION_LOST` | Resign with a fresh envelope; a `REPLAY` after that means the first try landed |
 | `ENVELOPE_STALE` | Resign with a fresh timestamp |
 | `BODY_TOO_LARGE` / `MODULE_TOO_LARGE` | Use the pack's `hello.wasm` |
-| Well-known works, redeem fails with `EXPIRED` | Voucher τ elapsed — need a fresh voucher from the pack or thread |
+| Well-known works, redeem fails with `EXPIRED` | Voucher τ elapsed — ask us for a fresh voucher (see Contact below) |
 
-Questions → open-call thread. Please include OS, Node version, and the **error code** only.
+## Contact
+
+Questions, `DONE` reports, or a fresh voucher: [Discord thread](https://discord.com/channels/1312302100125843476/1544674994423074867/threads/1557794379647946832), [X @slicegridhq](https://x.com/slicegridhq), [team@bagcollective.io](mailto:team@bagcollective.io), or [GitHub Issues](https://github.com/slicegrid/slice-alpha/issues).
+
+Please include OS, Node version, and the **error code** only.
